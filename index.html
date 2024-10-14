@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch Me</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .button {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            animation: pulse 1.5s infinite, glow 2s infinite;
+            transition: transform 0.3s;
+            z-index: 10;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #fff; }
+            50% { box-shadow: 0 0 20px #fff, 0 0 30px #fff; }
+            100% { box-shadow: 0 0 5px #fff; }
+        }
+        .anxiety-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, black 70%);
+            opacity: 0.7;
+            animation: anxiety 5s infinite alternate;
+        }
+        @keyframes anxiety {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="anxiety-effect"></div>
+    <div id="starfield"></div>
+    <button class="button" onclick="window.location.href='https://rr3---sn-hp57ynly.googlevideo.com/videoplayback?expire=1728903045&ei=JaMMZ5mTMK68kucPv86Z4Q4&ip=192.46.200.123&id=o-APUcw4JIDsaUNCMij5TnKwl8N7ccfusicjPo1QQgbMDs&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AXLXGFQRLgr_OhjKLi4yvvpMvVBA8kUU3xKdZEnAYSfNAEffSD_YamO2h28cyOe0sQKRYQxw9spkh_-7&vprv=1&svpuc=1&mime=video%2Fmp4&ns=Bi0mahACAQV9OAjgqWBsETUQ&rqh=1&cnr=14&ratebypass=yes&dur=134.048&lmt=1725472472405378&fexp=24350655,51300760&c=TVHTML5_SIMPLY_EMBEDDED_PLAYER&sefc=1&txp=5309224&n=OOOxdwVnTBqrbg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRQIhAM1c8F1dhURF3XCGN3s8qAYx8iT6zOJeg7DIvP0NCwPkAiA1M48GtveBgfVIMjCeDvsS0v10iFnqDRkaU1DXyILaJw%3D%3D&rm=sn-gjo-cvnl7l,sn-ab5eld7s&rrc=79,104&req_id=6ef6503e3affa3ee&met=1728881456,&rms=rdu,au&redirect_counter=2&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=EJ&mip=2a09:bac2:d4b7:13e1::1fb:aa&mm=29&mn=sn-hp57ynly&ms=rdu&mt=1728880864&mv=u&mvi=3&pl=48&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=ACJ0pHgwRAIgX_KrQ56nG4_u4nnakaAHfBzLRRRlN-XhDUARx-NYEC8CIHQKpjU8BmVNpyX1YOlSGjAgF0SJbb06KyhnWAfOwBoi'">
+        Touch Me...Please
+    </button>
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.getElementById('starfield').appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 5000);
+        }
+
+        setInterval(createStar, 100);
+    </script>
+</body>
+</html>
